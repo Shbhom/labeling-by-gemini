@@ -6,7 +6,7 @@ branding:
   icon: tag
 
 inputs:
-  openai-api-key: # id of input
+  gemini-api-key: # id of input
     description: "Gemini API Key"
     required: true
   github-token:
