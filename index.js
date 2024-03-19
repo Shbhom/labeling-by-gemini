@@ -6,8 +6,6 @@ try {
   const apiKey = core.getInput("gemini-api-key");
   const githubToken = core.getInput("github-token");
 
-  core.info(`apiKey:${apiKey},token:${githubToken}`)
-
   const octokit = github.getOctokit(githubToken);
 
   const issue = await octokit.rest.issues.get({
