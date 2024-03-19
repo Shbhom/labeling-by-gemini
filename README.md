@@ -34,5 +34,5 @@ jobs:
     steps:
       - uses: shbhom/labeling-by-gemini@main
         with:
-          openai-api-key: ${{ secrets.gemini_API_KEY }}
+          gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
 ```

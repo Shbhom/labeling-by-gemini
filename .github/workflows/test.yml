@@ -4,10 +4,19 @@ on:
 
 jobs:
   test:
-    name: test
+    test:
     runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{secrets.GEMINI_API_KEY}}
+      GITHUB_TOKEN: ${{ github.token }}
 
     steps:
+      - name: printing gemini
+        run : echo "gemini: $GEMINI_API_KEY"
+      - name: printing github
+        run : echo "github: $GITHUB_TOKEN"
       - uses: shbhom/labeling-by-gemini@main
         with:
-          openai-api-key: ${{ secrets.GEMINI_API_KEY }}
+          gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
+          github-token: ${{ github.token }}
+

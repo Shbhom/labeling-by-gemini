@@ -3,7 +3,7 @@ import * as github from "@actions/github";
 import { GenerativeModel } from "@google/generative-ai";
 
 try {
-  const apiKey = core.getInput("openai-api-key");
+  const apiKey = core.getInput("gemini-api-key");
   const githubToken = core.getInput("github-token");
 
   const octokit = github.getOctokit(githubToken);
@@ -38,6 +38,8 @@ try {
     generationConfig: { temperature: 0 },
   });
   const completion = await model.generateContent(prompt);
+
+  core.debug({ completion });
 
   let labels = /LABELS\: (.+)/g.exec(completion.response.text());
 
